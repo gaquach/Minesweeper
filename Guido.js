@@ -1,4 +1,4 @@
-if(!Interactive) {
+ if(!Interactive) {
   var Interactive = function() {
     var f, j, k, l, m, n = function(a) {
       document.defaultView && document.defaultView.getComputedStyle && (a = document.defaultView.getComputedStyle(a, null), j = parseInt(a.paddingLeft, 10) || 0, k = parseInt(a.paddingTop, 10) || 0, l = parseInt(a.borderLeftWidth, 10) || 0, m = parseInt(a.borderTopWidth, 10) || 0)
