@@ -1,8 +1,8 @@
 import de.bezier.guido.*;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines = new ArrayList <MSButton>(); //ArrayList of just the minesweeper buttons that are mined
-public int NUM_ROWS = 5;
-public int NUM_COLS = 5;
+public int NUM_ROWS = 20;
+public int NUM_COLS = 20;
 public int NUM_MINES = 0;
 public void setup ()
 {
@@ -11,6 +11,7 @@ public void setup ()
     
     // make the manager
     Interactive.make( this );
+
     buttons = new MSButton[NUM_ROWS][NUM_COLS];                                                                   
     for(int r=0; r<NUM_ROWS; r++)
     {
@@ -23,13 +24,13 @@ public void setup ()
 }
 public void setMines()
 {
-    while(NUM_MINES < 6)
+    while(NUM_MINES < 21)
     {
-        int randR = (int)(Math.random()*5);
-        int randC = (int)(Math.random()*5);
-        if(mines.contains(buttons[randR][randC])== false)
+        int rR = (int)(Math.random()*20);
+        int rC = (int)(Math.random()*20);
+        if(mines.contains(buttons[rR][rC])== false)
         {
-            mines.add(buttons[randR][randC]);
+            mines.add(buttons[rR][rC]);
         }
         NUM_MINES++;
     }
@@ -58,14 +59,30 @@ public boolean isWon()
 public void displayLosingMessage()
 {
     //your code here
+    buttons[10][6].setLabel("Y");
+    buttons[10][7].setLabel("O");
+    buttons[10][8].setLabel("U");
+    buttons[10][9].setLabel(" ");
+    buttons[10][10].setLabel("L");
+    buttons[10][11].setLabel("O");
+    buttons[10][12].setLabel("S");
+    buttons[10][13].setLabel("E");
 }
 public void displayWinningMessage()
 {
     //your code here
+    buttons[10][6].setLabel("Y");
+    buttons[10][7].setLabel("O");
+    buttons[10][8].setLabel("U");
+    buttons[10][9].setLabel(" ");
+    buttons[10][10].setLabel(" ");
+    buttons[10][11].setLabel("W");
+    buttons[10][12].setLabel("I");
+    buttons[10][13].setLabel("N");
 }
 public boolean isValid(int r, int c)
 {
-    if(r <= 4 && r >= 0 && c >= 0&& c <= 4){
+    if(r <= 19 && r >= 0 && c >= 0&& c <= 19){
     return true;
     }
     return false;
